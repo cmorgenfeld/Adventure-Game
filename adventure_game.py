@@ -1,6 +1,7 @@
 from random import *
 from time import *
 from type import *
+from item_generator import *
 
 
 def intro():
@@ -58,6 +59,6 @@ def attributes():
 
 
 
-
+weaponGenerator()
 name = intro()
 strgth, spd, chrsma, hlth = attributes()
