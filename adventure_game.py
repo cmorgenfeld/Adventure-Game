@@ -14,21 +14,21 @@ def intro():
     type("Name your adventurer")
     name = input()
 
-    type("As a young man, "+ name + " met the love of his life. They settled down in the small village\
-of Villageville and had a young boy named Kristofferson. On his first birthday, Kristofferson was\
-kidnapped by the shadowy orginazation known to a select few as the Concrete Fountain. The villagers\
+    type("As a young man, "+ name + " met the love of his life. They settled down in the small village \
+of Villageville and had a young boy named Kristofferson. On his first birthday, Kristofferson was \
+kidnapped by the shadowy orginazation known to a select few as the Concrete Fountain. The villagers \
 of Villageville advised "+ name + " not to pursue the criminals, but to forget the incident. And he did.")
     sleep(0.75)
     type("20 years later...")
     sleep(0.75)
-    type("As "+ name + " returned from a day of hard labor crafting wooden dice, he saw a crowd of\
-Villageville villagers around his hut. His wife had been murdered by the Concrete Fountain!\
+    type("As "+ name + " returned from a day of hard labor crafting wooden dice, he saw a crowd of \
+Villageville villagers around his hut. His wife had been murdered by the Concrete Fountain! \
 "+ name + " ran to the village leader for guidance.")
     type('"What should I do, O great village leader?", questioned '+ name + '.')
     type('"Follow your heart, young one.", he replied')
     type('"I will pay back the Concrete Fountain for all of the hardship in my life!", exclaimed ' + name + '.')
-    type('"Take this pouch of our finest wooden dice, it should fetch a good price our neighboring town,\
-Blackwater. Good luck on your quest, ' + name + ' you will bring Villageville much honor and glory!\
+    type('"Take this pouch of our finest wooden dice, it should fetch a good price our neighboring town, \
+Blackwater. Good luck on your quest, ' + name + ' you will bring Villageville much honor and glory! \
 But first, look inside you and tell me your strengths and weaknesses."')
 
     return(name)

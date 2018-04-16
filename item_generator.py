@@ -3,14 +3,14 @@ from type import *
 
 def weaponGenerator():
     dmgMod = {
-        "Bad" : 0.9,
-        "Normal" : 1,
-        "Good" : 1.1,
+        "bad" : 0.9,
+        "normal" : 1,
+        "good" : 1.1,
     }
     qlty = choice(list(dmgMod.keys()))
     mod = dmgMod[qlty]
 
-    items = ['Mace', 'Bow', 'Sword', 'Armor', 'Helmet', 'Shield']
+    items = ['mace', 'bow', 'sword', 'armor', 'helmet', 'shield']
 
     item = choice(items)
 
