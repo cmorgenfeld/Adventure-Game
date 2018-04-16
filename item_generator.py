@@ -8,7 +8,7 @@ def weaponGenerator():
         "Good" : 1.1,
     }
     qlty = choice(list(dmgMod.keys()))
-    mod = dmgMod(qlty)
+    mod = dmgMod[qlty]
 
     print(qlty)
     print(mod)
