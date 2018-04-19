@@ -2,6 +2,7 @@ from random import *
 from time import *
 from type import *
 from item_generator import *
+from save_game import *
 
 
 def intro():
@@ -38,20 +39,28 @@ def attributes():
     spd = 0
     chrsma = 0
     hlth = 0
+    pnts = 20
     type('*You have 4 major attributes; strength, speed, charisma, and constitution.*')
     type('*You have 20 points to allocate between the different attributes*')
-    while not strgth + spd + chrsma + hlth == 20 or not 0 <= strgth <= 20 or not 0 <= spd <= 20 \
+    while not pnts == 0 or not 0 <= strgth <= 20 or not 0 <= spd <= 20 \
           or not 0 <= chrsma <= 20 or not 0 <= hlth <= 20:
         type("How much strength do you have? (0 - 10): ")
         strgth = int(input())
+        pnts -= strgth
+        type("*You have " + str(pnts) + " points left to allocate*")
         type("How much speed do you have? (0 - 10): ")
         spd = int(input())
+        pnts -= spd
+        type("*You have " + str(pnts) + " points left to allocate*")
         type("How much charisma do you have? (0 - 10): ")
         chrsma = int(input())
+        pnts -= chrsma
+        type("*You have " + str(pnts) + " points left to allocate*")
         type("How much constitution do you have? (0 - 10): ")
         hlth = int(input())
+        pnts -= hlth
 
-        if not strgth + spd + chrsma + hlth == 20 or not 0 <= strgth <= 20 or not 0 <= spd <= 20 \
+        if not pnts == 0 or not 0 <= strgth <= 20 or not 0 <= spd <= 20 \
            or not 0 <= chrsma <= 20 or not 0 <= hlth <= 20:
             type("Make sure your total is 20 and no value is negative.")
 
@@ -62,10 +71,5 @@ def attributes():
 weaponGenerator()
 #name = intro()
 strgth, spd, chrsma, hlth = attributes()
-with open('save_game.txt', 'w') as save:
-    save.write(str(strgth) + '\n')
-    save.write(str(spd) + '\n')
-    save.write(str(chrsma) + '\n')
-    save.write(str(hlth) + '\n')
-with open('save_game.txt', 'r') as save:
-    print(save.read())
+saveGame(strgth, spd, chrsma, hlth)
+strgth, spd, chrsma, hlth = loadGame()
