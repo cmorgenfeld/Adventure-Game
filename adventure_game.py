@@ -60,12 +60,12 @@ def attributes():
 
 
 weaponGenerator()
-name = intro()
+#name = intro()
 strgth, spd, chrsma, hlth = attributes()
 with open('save_game.txt', 'w') as save:
-    save.write(strgth)
-    save.write(spd)
-    save.write(chrsma)
-    save.write(hlth)
+    save.write(str(strgth) + '\n')
+    save.write(str(spd) + '\n')
+    save.write(str(chrsma) + '\n')
+    save.write(str(hlth) + '\n')
 with open('save_game.txt', 'r') as save:
     print(save.read())
