@@ -42,8 +42,8 @@ def attributes():
     pnts = 20
     type('*You have 4 major attributes; strength, speed, charisma, and constitution.*')
     type('*You have 20 points to allocate between the different attributes*')
-    while not pnts == 0 or not 0 <= strgth <= 20 or not 0 <= spd <= 20 \
-          or not 0 <= chrsma <= 20 or not 0 <= hlth <= 20:
+    while not pnts == 0 or not 0 <= strgth <= 10 or not 0 <= spd <= 10 \
+          or not 0 <= chrsma <= 10 or not 0 <= hlth <= 10:
         type("How much strength do you have? (0 - 10): ")
         strgth = int(input())
         pnts -= strgth
@@ -60,8 +60,8 @@ def attributes():
         hlth = int(input())
         pnts -= hlth
 
-        if not pnts == 0 or not 0 <= strgth <= 20 or not 0 <= spd <= 20 \
-           or not 0 <= chrsma <= 20 or not 0 <= hlth <= 20:
+        if not pnts == 0 or not 0 <= strgth <= 10 or not 0 <= spd <= 10 \
+           or not 0 <= chrsma <= 10 or not 0 <= hlth <= 10:
             type("Make sure your total is 20 and no value is negative.")
 
     return(strgth, spd, chrsma, hlth)
@@ -69,7 +69,7 @@ def attributes():
 
 
 weaponGenerator()
-#name = intro()
+name = intro()
 strgth, spd, chrsma, hlth = attributes()
 saveGame(strgth, spd, chrsma, hlth)
 strgth, spd, chrsma, hlth = loadGame()
