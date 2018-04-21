@@ -11,7 +11,7 @@ def weaponGenerator():
     mod = dmgMod[qlty]
 
     items = ['mace', 'bow', 'sword', 'armor', 'helmet', 'shield']
+    item = qlty + " " + choice(items)
 
-    item = choice(items)
-
-    print("You found a", qlty, item +"!")
+    type("You found a " + item +"!")
+    return(mod, item)

@@ -3,7 +3,7 @@ from time import *
 from type import *
 from item_generator import *
 from save_game import *
-
+from monster_generator import *
 
 def intro():
     #Intro
@@ -25,9 +25,9 @@ of Villageville advised "+ name + " not to pursue the criminals, but to forget t
     type("As "+ name + " returned from a day of hard labor crafting wooden dice, he saw a crowd of \
 Villageville villagers around his hut. His wife had been murdered by the Concrete Fountain! \
 "+ name + " ran to the village leader for guidance.")
-    type('"What should I do, O great village leader?", questioned '+ name + '.')
-    type('"Follow your heart, young one.", he replied')
-    type('"I will pay back the Concrete Fountain for all of the hardship in my life!", exclaimed ' + name + '.')
+    type('"What should I do, O great village leader?" questioned '+ name + '.')
+    type('"Follow your heart, young one", he replied.')
+    type('"I will pay back the Concrete Fountain for all of the hardship in my life!" exclaimed ' + name + '.')
     type('"Take this pouch of our finest wooden dice, it should fetch a good price our neighboring town, \
 Blackwater. Good luck on your quest, ' + name + ' you will bring Villageville much honor and glory! \
 But first, look inside you and tell me your strengths and weaknesses."')
@@ -66,10 +66,27 @@ def attributes():
 
     return(strgth, spd, chrsma, hlth)
 
+class Player(object):
+    def __init__(self, name, strgth, spd, chrsma, hlth):
+        self.name = name
+        self.strgth = strgth
+        self.spd = spd
+        self.chrsma = chrsma
+        self.hlth = hlth
+    def damageUpdate(self):
+        self.damage = round(self.strgth * weapon_mod)
 
-
-weaponGenerator()
 name = intro()
 strgth, spd, chrsma, hlth = attributes()
+player = Player(name, strgth, spd, chrsma, hlth)
+#Saves and loads game to save_game.txt
 saveGame(strgth, spd, chrsma, hlth)
 strgth, spd, chrsma, hlth = loadGame()
+#Creates monster (Only has name and damage values tho)
+dmg, name = monster_generator()
+monster = Monster(name, dmg, dmg, dmg)
+#Use in this order (Creates weapon and updates player's damage value)
+#    |
+#  \|/
+"""weapon_mod, weapon = weaponGenerator()
+player.damageUpdate()"""
