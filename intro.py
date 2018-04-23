@@ -24,7 +24,7 @@ Villageville villagers around his hut. His wife had been murdered by the Concret
     type('"What should I do, O great village leader?" questioned '+ name + '.')
     type('"Follow your heart, young one", he replied.')
     type('"I will pay back the Concrete Fountain for all of the hardship in my life!" exclaimed ' + name + '.')
-    type('"Take this pouch of our finest wooden dice, it should fetch a good price our neighboring town, \
+    type('"Take this pouch of our finest wooden dice, it should fetch a good price at our neighboring town, \
 Blackwater. Good luck on your quest, ' + name + ' you will bring Villageville much honor and glory! \
 But first, look inside you and tell me your strengths and weaknesses."')
 

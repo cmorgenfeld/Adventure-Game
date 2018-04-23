@@ -8,6 +8,11 @@ class Monster(object):
         self.spd = spd
         self.hlth =hlth
         self.lvl = lvl
+        
+    def encounter(self):
+        type('You encounter a ' + self.name + '!')
+        type('The ' + self.name + ' closes in for a fight.')
+
 
 def monster_generator(lvl):
     Mod = {
@@ -18,12 +23,22 @@ def monster_generator(lvl):
 
     qlty = choice(list(Mod.keys()))
     mod = Mod[qlty]
+    if randint(1, 10) == 1:
+        item = True
+    else:
+        item = False
 
-    dmg = mod * randint(1, lvl)
-    
+    if lvl > 5:
+        dmg = mod * randint(lvl - 5, lvl + 5)
+        spd = mod * randint(lvl - 5, lvl + 5)
+        hlth = mod * randint(lvl - 5, lvl + 5)
+    else:
+        dmg = mod * randint(1, lvl + 5)
+        spd = mod * randint(1, lvl + 5)
+        hlth = mod * randint(1, lvl + 5)
+        
     names = ['zombie', 'ogre', 'troll', 'orc']
     name = qlty + " " + choice(names)
 
-    type("You encounter a " + name + "!")
-    return(mod, name)
+    return(name, dmg, spd, hlth, item)
     

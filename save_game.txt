@@ -2,3 +2,4 @@
 4
 7
 3
+'bad level 1 sword'

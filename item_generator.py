@@ -1,7 +1,7 @@
 from random import *
 from type import *
 
-def weaponGenerator():
+def weaponGenerator(lvl):
     dmgMod = {
         "bad" : 0.9,
         "normal" : 1,
@@ -11,7 +11,6 @@ def weaponGenerator():
     mod = dmgMod[qlty]
 
     items = ['mace', 'bow', 'sword', 'armor', 'helmet', 'shield']
-    item = qlty + " " + choice(items)
+    item = qlty + " level " + str(lvl) + ' ' + choice(items)
 
-    type("You found a " + item +"!")
     return(mod, item)

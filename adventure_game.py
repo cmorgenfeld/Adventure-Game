@@ -5,6 +5,7 @@ from item_generator import *
 from save_game import *
 from monster_generator import *
 from intro import *
+from zone_generator import *
 
 class Player(object):
     def __init__(self, name, strgth, spd, chrsma, hlth):
@@ -14,22 +15,36 @@ class Player(object):
         self.chrsma = chrsma
         self.hlth = hlth
         self.lvl = 1
+        self.damage = self.strgth
+        self.inventory = []
         
-    def damageUpdate(self):
-        self.damage = round(self.strgth * weapon_mod)
-
-
-name, strgth, spd, chrsma, hlth = intro()
+    def damageUpdate(self, drop, weapon_mod):
+        if drop:
+            self.damage = round(self.strgth * weapon_mod)
+    def pickUp(self, drop, weapon):
+        if drop:
+            self.inventory.append(weapon)
+        
+#name, strgth, spd, chrsma, hlth = intro()
+name, strgth, spd, chrsma, hlth = 'Bob', 6, 4, 7, 3
 player = Player(name, strgth, spd, chrsma, hlth)
-zone, lvl = zoneGenerator(player.lvl)
-#Saves and loads game to save_game.txt
-saveGame(strgth, spd, chrsma, hlth)
-strgth, spd, chrsma, hlth = loadGame()
-#Creates monster (Only has name and damage values tho)
-dmg, name = monster_generator()
-monster = Monster(name, dmg, dmg, dmg, player.lvl)
+zone, lvl, monsters = zoneGenerator(player.lvl)
+
+#Creates monster (Drop is whether or not monster drops item)
+name, dmg, spd, hlth, drop = monster_generator(player.lvl)
+monster = Monster(name, dmg, spd, hlth, player.lvl)
+monster.encounter()
 #Use in this order (Creates weapon and updates player's damage value)
 #    |
 #  \|/
-"""weapon_mod, weapon = weaponGenerator()
-player.damageUpdate()"""
+
+drop = True
+weapon_mod, weapon = weaponGenerator(player.lvl)
+player.damageUpdate(drop, weapon_mod)
+player.pickUp(drop, weapon)
+print(player.inventory)
+
+#Saves and loads game to save_game.txt
+saveGame(player.strgth, player.spd, player.chrsma, player.hlth, player.inventory)
+player.strgth, player.spd, player.chrsma, player.hlth, player.inventory = loadGame()
+type(str(player.inventory))
