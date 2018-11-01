@@ -5,7 +5,7 @@ def intro():
     #Intro
     type("Cool Title")
     type("A production by...")
-    type("Black Table Gaming Corp.")
+    type("Garage Couch Gaming Corp.")
 
     #Name adventurer. W/backstory --> Child kidnapped by Black Table, going to rescue them.
     type("Name your adventurer")
@@ -57,5 +57,6 @@ But first, look inside you and tell me your strengths and weaknesses."')
         if not pnts == 0 or not 0 <= strgth <= 10 or not 0 <= spd <= 10 \
            or not 0 <= chrsma <= 10 or not 0 <= hlth <= 10:
             type("Make sure your total is 20 and no value is negative.")
+            pnts = 20
 
     return(name, strgth, spd, chrsma, hlth)

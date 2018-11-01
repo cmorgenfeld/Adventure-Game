@@ -1,5 +1,6 @@
+Katherine
 6
 4
 7
 3
-'bad level 1 sword'
+good level 1 bow', 'good level 1 armor

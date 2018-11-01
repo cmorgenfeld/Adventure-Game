@@ -6,12 +6,13 @@ class Monster(object):
         self.name = name
         self.dmg = dmg
         self.spd = spd
-        self.hlth =hlth
+        self.hlth = hlth
         self.lvl = lvl
         
     def encounter(self):
         type('You encounter a ' + self.name + '!')
         type('The ' + self.name + ' closes in for a fight.')
+        type('The ' + self.name + ' has ' + str(self.hlth) + ' health and is level ' + str(self.lvl) + '!')
 
 
 def monster_generator(lvl):

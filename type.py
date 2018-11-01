@@ -3,7 +3,7 @@ from time import *
 def type(str):
     for lettr in str:
         print(lettr, end ='')
-        sleep(0.03)
+        sleep(0.015)
     print('')
 
 def typeTime(str, time):
