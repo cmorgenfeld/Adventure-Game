@@ -43,7 +43,13 @@ drop = True
 weapon_mod, weapon = weaponGenerator(player.lvl)
 player.damageUpdate(drop, weapon_mod)
 player.pickUp(drop, weapon)
+player.pickUp(drop, weapon)
 print(str(player.inventory)[2:-2])
+inventory = ''
+for i in range(len(player.inventory) - 1):
+    inventory += player.inventory[i] + ', '
+inventory += player.inventory[i + 1]
+print(inventory)
 
 #Saves and loads game to save_game.txt
 saveGame(player.name, player.strgth, player.spd, player.chrsma, player.hlth, player.inventory)

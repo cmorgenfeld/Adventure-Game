@@ -3,4 +3,4 @@ Katherine
 4
 7
 3
-good level 1 bow', 'good level 1 armor
+bad level 1 armor, bad level 1 armor
